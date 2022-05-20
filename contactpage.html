@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="js/bootstrap.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+  <title>Document</title>
+  <style>
+    html {
+      background-color: black;
+    }
+    input[type=text], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+  }
+  input[type=number], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+  }
+  input[type=email], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+  }
+  
+  input[type=tel], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+  }
+
+  input[type=submit] {
+    width: 100%;
+    background-color: grey;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+  }
+  
+  input[type=submit]:hover {
+    background-color: darkgray;
+  }
+  .everything {
+    background-color:black;
+  }
+  
+.from {
+    color: white;
+    width: 50%;
+    margin: auto;
+    text-align: center;
+    padding: 20px;
+  }
+  </style>
+</head>
+
+<body style="background-color: black;">
+  <script>
+    function validation() {
+    var firstname = document.registration.fname;
+    var lastname = document.registration.lname;
+    var gname = document.registration.gname;
+    var number = document.registration.number;
+
+    if (allLettername(firstname)) {
+        if (allLetterlast(lastname)) {
+            if (genderSelect(gname)) {
+                if (Mobile(number)) {
+
+                }
+            }
+        }
+    }
+    return false;
+}
+
+function allLettername(firstname) {
+    var letters = /^[A-Za-z]+$/;
+    if (firstname.value.length == 0) {
+        alert('Please enter you first name');
+        firstname.focus();
+        return false;
+    }
+    else if (firstname.value.match(letters)) {
+        return true;
+    }
+    else {
+        alert('First name must have alphabet characters only');
+        firstname.focus();
+        return false;
+    }
+}
+
+function allLetterlast(lastname) {
+    var letters = /^[A-Za-z]+$/;
+    if (lastname.value.length == 0) {
+        alert('Please enter you last name');
+        lastname.focus();
+        return false;
+    }
+    else if (lastname.value.match(letters)) {
+        return true;
+    }
+    else {
+        alert('Last name must have alphabet characters only');
+        lastname.focus();
+        return false;
+    }
+}
+
+function Mobile(number) {
+    var numbers = /^[0-9]+$/;
+    if (number.value.length == 0) {
+        alert('Please enter your phone number');
+        number.focus();
+        return false;
+    }
+    else if (number.value.match(numbers)) {
+        return true;
+    }
+    else {
+        alert('Phone number can only have numerical values');
+        number.focus();
+        return false;
+    }
+}
+
+
+
+
+
+  </script>
+  <nav class="navbar navbar-light fixed-top">
+
+    <div class="container-fluid">
+      <a class="navbar-brand" href="index.html">Gabriel Rabago</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+        aria-controls="offcanvasNavbar">
+        <span class="navbar-toggler-icon bg-"></span>
+      </button>
+      <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="offcanvasNavbarLabel">My Portfolio</h5>
+          <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+            </li>
+          
+            <li class="nav-item">
+              <a class="nav-link" href="mywork.html">My Work</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contactpage.html">Contact Me</a>
+            </li>
+        </div>
+      </div>
+    </div>
+  </nav>
+<br>
+<br><br>
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb" style= "margin-bottom: -60px;margin-left: 20px;">
+      <li class="breadcrumb-item"><a href="index.html"style="color:white;">Home</a></li>
+      <li class="breadcrumb-item"><a href="contactpage.html"style="color:white;">Contact Me</a></li>
+    </ol>
+  </nav>
+  <div class="everything">
+    <form name="registration" onSubmit="return validation();">
+        <fieldset class="from">
+            <legend style="align :center;margin-top: 100px;">Personal Information</legend> <br>
+            <label>First Name: </label> <br>
+            <input type="text" placeholder="First Name" name="fname"> <br>
+            <label>Last Name: </label> <br>
+            <input type="text" placeholder="Last Name" name="lname"> <br>
+            <label>Gender</label> <br>
+            <select name="gname">
+                <option selected="" value="Default">Select</option>
+                <option>Male</option>
+                <OPTION>Female</OPTION>
+            </select> <br>
+            <label>Phone Number: </label> <br>
+            <input type="tel" placeholder="XXX-XXX-XXX" pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}"> <br> 
+
+            <label>Gmail:</label> <br>
+            <input type="email" placeholder="Email" name="Email"> <br> <br>
+            <input type="submit" value="Submit">
+        </fieldset>
+    </form>
+</div>
+
+ 
+</body>
+
+</html>
